@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewBag.Title = "ShowEmployee";
+    Layout = "~/Views/Shared/NGOlayout.cshtml";
+}
+@model List<mid_project.DB.Employee>
+<h2>Show All Employee</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Assigned Requests Number</th>
+    </tr>
+    @foreach (var emp in Model)
+    {
+        <tr>
+            <td>@emp.id</td>
+            <td>@emp.name</td>
+            <td>@emp.Requests.Count</td>
+            <td><a href="/Employee/CheckRequest/@emp.id" class="btn btn-outline-dark">CHECK REQUESTS</a></td>
+        </tr>
+    }
+</table>
